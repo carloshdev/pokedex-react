@@ -59,12 +59,12 @@ changePokemon = (id) =>{
 
   render() {
     if (this.state.vetPokemon.length < this.state.vetId.length-1){
-      return <div>Carregando...</div>
+      return <div class="lds-circle">Carregando</div>
   }
 
     return (
-      <div className="App">
-          <div style={{width:'50%'}}>
+      <div className="App" id="areaTodo">
+          <div id="areaSuperior">
           <Label for="select">Selecione um Pokemon</Label> 
             <Input type="select" name="select" value={this.state.idSelecionado} id="select" onChange={(input)=>this.changePokemon(input.target.value)}>
             <option key={-1} value={-1} >Selecione um Pokemon</option>
@@ -76,12 +76,12 @@ changePokemon = (id) =>{
           </Input> 
           </div>
           
-          <div style={{width:'50%'}}>
+          <div id="areaInferior">
           {
             
             this.state.pokemonSelecionado ?
               <Card>
-                <CardImg top style={{width:"50%"}} src={this.state.pokemonSelecionado.sprites.front_default} alt="Card image cap" />
+                <CardImg top style={{width:'50%', margin:'0 auto'}} src={this.state.pokemonSelecionado.sprites.front_default} alt="Card image cap" />
                 <CardBody>
                 <CardTitle>{this.state.pokemonSelecionado.name.toUpperCase()} - {this.state.pokemonSelecionado.id}</CardTitle>
                 <CardSubtitle>{this.state.pokemonSelecionado.types[0].type.name.toUpperCase()}</CardSubtitle>
